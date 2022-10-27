@@ -23,6 +23,18 @@ const Game = () => {
             setGrid(generateGrid(gridSize))
         }
     }
+    useEffect(() => {
+        const localGame = window.localStorage.getItem(CACHE_KEY)
+        if (localGame !== null) {
+            const {gridSize, grid} = JSON.parse(localGame);
+            setGridSize(gridSize)
+            setGrid(grid)
+        }
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem(CACHE_KEY, JSON.stringify({gridSize, grid}))
+    }, [grid, gridSize])
     
     const handleOnGridChange = (r, c) => {
         if (grid[r][c] === 0) {
