@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders label to select grid size', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Select a grid size/i);
-  expect(linkElement).toBeInTheDocument();
+  const textElement = screen.getByText(/Select a grid size/i);
+  expect(textElement).toBeInTheDocument();
 });
