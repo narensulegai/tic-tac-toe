@@ -20,7 +20,8 @@ const Grid = props => {
 };
 
 Grid.propTypes = {
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    value: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
 };
 
 export default Grid;
