@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.center {
+    text-align: center;
+    margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.small-margin-top {
+    margin-top: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid-row {
+    /*css grid/table is probably the way to go, but I feel that more
+    developers are familiar with flex, it will be easier to maintain*/
+    flex: 1;
+    display: flex;
+}
+
+.grid-cell {
+    box-sizing: content-box; /*small hack to make sure that the borders are padded*/
+    border: 1px solid black;
+    margin: 0.2rem;
+    flex: 1;
+    background: transparent;
+}
+
+.grid-cell:hover[empty='true'] {
+    background: rgba(12, 189, 6, 0.5);
+    cursor: pointer;
+}
+
+button[disabled].marker {
+    color: black;
+}
+
+.game-size-3 .marker, .game-size-4 .marker {
+    font-size: 2.5rem;
+}
+
+.game-size-4 .marker, .game-size-5 .marker {
+    font-size: 2rem;
+}
+
+.game-size-6 .marker {
+    font-size: 1.5rem;
+}
+
+/*TODO: add support for medium devices*/
+@media screen and (max-width: 320px) {
+    .container {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .game-size-3 .marker, .game-size-4 .marker {
+        font-size: 1.5rem;
+    }
+
+    .game-size-4 .marker, .game-size-5 .marker {
+        font-size: 1rem;
+    }
+
+    .game-size-6 .marker {
+        font-size: 0.5rem;
+    }
 }
