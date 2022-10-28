@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Grid from "./Grid";
 
-const generateGrid = (size) => {
+export const generateGrid = (size) => {
     const grid = []
     for (let r = 0; r < size; r++) {
         grid.push(Array(size).fill(0))
@@ -35,7 +35,7 @@ const Game = () => {
     useEffect(() => {
         window.localStorage.setItem(CACHE_KEY, JSON.stringify({gridSize, grid}))
     }, [grid, gridSize])
-    
+
     const handleOnGridChange = (r, c) => {
         if (grid[r][c] === 0) {
             grid[r][c] = isCross ? 1 : 2
