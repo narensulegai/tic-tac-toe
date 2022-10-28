@@ -24,8 +24,11 @@ body {
 }
 
 .grid-row {
-    /*css grid/table is probably the way to go, but I feel that more
-    developers are familiar with flex, it will be easier to maintain*/
+    /*
+    css grid/table is probably the way to go, but I feel that more
+    developers are familiar with flex, it will be easier to maintain.
+    Table is a good choice for accessibility.
+    */
     flex: 1;
     display: flex;
 }
@@ -36,6 +39,7 @@ body {
     margin: 0.2rem;
     flex: 1;
     background: transparent;
+    padding: 0;
 }
 
 .grid-cell:hover[data-cell-empty='true'] {
