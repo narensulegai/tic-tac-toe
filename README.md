@@ -3,6 +3,8 @@
 ## Build something like this!
 ![Tic-tac-toe Game](https://github.com/grain-team/tic-tac-toe/blob/master/objective.png?raw=true)
 
+# [App screenshot](https://github.com/narensulegai/tic-tac-toe/blob/master/app.png)
+
 # Extra points
 - ~~Make it look nice~~
 - ~~Add modern tooling of your choice (linter, formatter, etc)~~
