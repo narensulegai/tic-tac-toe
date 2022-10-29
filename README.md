@@ -4,8 +4,8 @@
 ![Tic-tac-toe Game](https://github.com/grain-team/tic-tac-toe/blob/master/objective.png?raw=true)
 
 # Extra points
-- Make it look nice
-- Add modern tooling of your choice (linter, formatter, etc)
+- ~~Make it look nice~~
+- ~~Add modern tooling of your choice (linter, formatter, etc)~~
 - ~~Save game data to LocalStorage~~
 - ~~Add a controller to change the grid size (3x3, 4x4, 5x5 or 6x6)~~
 
