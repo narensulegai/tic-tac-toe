@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import Grid from "./Grid";
 
 export const generateGrid = (size) => {
     const grid = []
-    for (let r = 0; r < size; r++) {
+    for (let row = 0; row < size; row++) {
         grid.push(Array(size).fill(0))
     }
     return grid
@@ -36,13 +36,13 @@ const Game = () => {
         window.localStorage.setItem(CACHE_KEY, JSON.stringify({gridSize, grid}))
     }, [grid, gridSize])
 
-    const handleOnGridChange = (r, c) => {
-        if (grid[r][c] === 0) {
-            grid[r][c] = isCross ? 1 : 2
+    const handleOnGridChange = useCallback((row, col) => {
+        if (grid[row][col] === 0) {
+            grid[row][col] = isCross ? 1 : 2
             setGrid([...grid])
             setIsCross(!isCross)
         }
-    }
+    }, [grid, isCross]);
 
     const handleOnReset = () => {
         setGrid(generateGrid(gridSize))
