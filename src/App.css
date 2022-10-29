@@ -40,6 +40,14 @@ body {
     flex: 1;
     background: transparent;
     padding: 0;
+
+}
+
+/*has lacks browser support, but still ok if it breaks for this use case, as it only centers the dot*/
+.grid-cell:has(.dot) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-cell:hover[data-cell-empty='true'] {
@@ -47,20 +55,39 @@ body {
     cursor: pointer;
 }
 
-button[disabled].marker {
-    color: black;
+.dot {
+    height: 90%;
+    width: 90%;
+    border-top: 1rem solid gold;
+    border-right: 1rem solid red;
+    border-left: 1rem solid green;
+    border-bottom: 1rem solid blue;
+    border-radius: 50%;
 }
 
-.game-size-3 .marker, .game-size-4 .marker {
-    font-size: 2.5rem;
+.cross .left, .cross .right {
+    height: 80%;
+    width: 1rem;
+    background: blue;
+    position: absolute;
+    top: 50%;
+    margin-top: -40%;
+    left: 50%;
+    margin-left: -0.5rem;
 }
 
-.game-size-4 .marker, .game-size-5 .marker {
-    font-size: 2rem;
+.cross {
+    position: relative;
+    height: 100%;
 }
 
-.game-size-6 .marker {
-    font-size: 1.5rem;
+.cross .left {
+    transform: rotate(45deg);
+}
+
+.cross .right {
+    transform: rotate(-45deg);
+    background: green;
 }
 
 /*TODO: add support for medium devices*/
@@ -68,17 +95,5 @@ button[disabled].marker {
     .container {
         width: 10rem;
         height: 10rem;
-    }
-
-    .game-size-3 .marker, .game-size-4 .marker {
-        font-size: 1.5rem;
-    }
-
-    .game-size-4 .marker, .game-size-5 .marker {
-        font-size: 1rem;
-    }
-
-    .game-size-6 .marker {
-        font-size: 0.5rem;
     }
 }

@@ -6,20 +6,28 @@ const Cell = props => {
         props.onClick(props.row, props.col)
     }
 
-    const symbol = (val) => {
-        return ['', 'X', '0'][val];
+    const label = (val) => {
+        return ['Empty', 'Cross', 'Dot'][val];
     }
 
     return (
         // Using button for accessibility
         <button className="grid-cell marker"
-                onClick={handleOnClick} data-cell-empty={(props.value === 0) + ''}
+                aria-label={label(props.value)}
+                aria-disabled={(props.value === 0)}
+                onClick={handleOnClick}
+                data-cell-empty={(props.value === 0) + ''}
             // disabled={props.value !== 0}
             // Not sure if we want to disable the button,
             // disabled buttons are not tab-able, the user might
             // just want to read what marker the button contains
         >
-            {symbol(props.value)}
+            {props.value === 1 && <div className="cross" aria-hidden={true}>
+                <div className="left"/>
+                <div className="right"/>
+            </div>}
+            {props.value === 2 && <div className="dot" aria-hidden={true}>
+            </div>}
         </button>
     );
 };
