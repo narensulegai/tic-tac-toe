@@ -36,13 +36,13 @@ const Game = () => {
         window.localStorage.setItem(CACHE_KEY, JSON.stringify({gridSize, grid}))
     }, [grid, gridSize])
 
-    const handleOnGridChange = useCallback((row, col) => {
+    const handleOnGridChange = (row, col) => {
         if (grid[row][col] === 0) {
             grid[row][col] = isCross ? 1 : 2
             setGrid([...grid])
             setIsCross(!isCross)
         }
-    }, [grid, isCross]);
+    };
 
     const handleOnReset = () => {
         setGrid(generateGrid(gridSize))
